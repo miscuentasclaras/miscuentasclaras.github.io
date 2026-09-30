@@ -93,6 +93,20 @@
             color: var(--text);
         }
 
+        /* Agrupador para input + select de tiempo */
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .input-group input {
+            flex: 2;
+        }
+
+        .input-group select {
+            flex: 1.2;
+        }
+
         input:focus, select:focus {
             outline: 2px solid var(--primary);
             border-color: transparent;
@@ -244,9 +258,16 @@
             </div>
 
             <div class="grid-2">
+                <!-- CAMBIO REALIZADO: Campo con opción de Años o Meses -->
                 <div class="form-group">
-                    <label for="years">Plazo de Tiempo (Años):</label>
-                    <input type="number" id="years" placeholder="Ej: 3" value="2">
+                    <label for="timeValue">Plazo de Tiempo:</label>
+                    <div class="input-group">
+                        <input type="number" id="timeValue" placeholder="Ej: 2" value="2" min="1">
+                        <select id="timeUnit">
+                            <option value="years" selected>Años</option>
+                            <option value="months">Meses</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -296,7 +317,7 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <!-- ARTÍCULO SEO (Obligatorio para evitar el rechazo de AdSense) -->
+        <!-- ARTÍCULO SEO -->
         <article class="card">
             <h2>¿Cómo funciona una cuenta remunerada?</h2>
             <p>Una <strong>cuenta remunerada</strong> es un producto financiero bancario que ofrece una rentabilidad en forma de intereses sobre el saldo de dinero aportado, manteniendo siempre total disponibilidad del capital para ser retirado cuando se necesite.</p>
@@ -333,18 +354,24 @@
             const monthlyDeposit = parseFloat(document.getElementById('monthly').value) || 0;
             const rateInput = parseFloat(document.getElementById('rate').value) || 0;
             const rateType = document.getElementById('rateType').value;
-            const years = parseFloat(document.getElementById('years').value) || 0;
+            const timeValue = parseFloat(document.getElementById('timeValue').value) || 0;
+            const timeUnit = document.getElementById('timeUnit').value;
             const taxRate = parseFloat(document.getElementById('tax').value) || 0;
 
-            if (years <= 0) {
-                alert("Por favor, introduce un número de años válido.");
+            if (timeValue <= 0) {
+                alert("Por favor, introduce un plazo de tiempo válido.");
                 return;
             }
 
-            const totalMonths = Math.round(years * 12);
-            let monthlyRate = 0;
+            // Determinar total de meses según la unidad elegida
+            let totalMonths = 0;
+            if (timeUnit === 'years') {
+                totalMonths = Math.round(timeValue * 12);
+            } else {
+                totalMonths = Math.round(timeValue);
+            }
 
-            // Calcular tasa mensual
+            let monthlyRate = 0;
             if (rateType === 'annual') {
                 monthlyRate = (rateInput / 100) / 12;
             } else {
@@ -355,7 +382,7 @@
             let totalDeposited = initial;
             let totalInterestGross = 0;
 
-            // Simulación mes a mes con capitalización e intereses sobre intereses
+            // Simulación mes a mes
             for (let m = 1; m <= totalMonths; m++) {
                 const interestThisMonth = currentBalance * monthlyRate;
                 totalInterestGross += interestThisMonth;
@@ -363,12 +390,12 @@
                 totalDeposited += monthlyDeposit;
             }
 
-            // Cálculo de impuestos y neto
+            // Cálculo fiscal y totales netos
             const taxMultiplier = taxRate / 100;
             const totalInterestNet = totalInterestGross * (1 - taxMultiplier);
             const finalBalanceNet = totalDeposited + totalInterestNet;
 
-            // Formatear resultados a moneda (€/$)
+            // Formato de moneda (€)
             const fmt = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
 
             document.getElementById('res-total-gross').innerText = fmt.format(currentBalance);
@@ -377,7 +404,7 @@
             document.getElementById('res-interest-gross').innerText = fmt.format(totalInterestGross);
             document.getElementById('res-interest-net').innerText = fmt.format(totalInterestNet);
 
-            // Mostrar la caja de resultados
+            // Mostrar resultados
             document.getElementById('results').style.display = 'block';
         }
     </script>
