@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2011997814577485"
+     crossorigin="anonymous"></script></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cuenta Remunerada | Interés Compuesto y Ahorro</title>
+    <meta name="description" content="Calcula las ganancias de tu cuenta remunerada o de ahorro con aportaciones mensuales. Simula tus rendimientos en intereses brutos y netos a corto y largo plazo.">
+    
+    <!-- Script de Google AdSense (Sustituye ca-pub-XXXXXXXXXXXXXXXX con tu ID real) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-hover: #047857;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --accent: #ecfdf5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.75rem;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            background-color: #fff;
+            color: var(--text);
+        }
+
+        input:focus, select:focus {
+            outline: 2px solid var(--primary);
+            border-color: transparent;
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .results {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--accent);
+            border-radius: 8px;
+            border: 1px solid #a7f3d0;
+            display: none;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .result-box {
+            background: #ffffff;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .result-box small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-box strong {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .ad-container {
+            text-align: center;
+            margin: 2rem 0;
+            background: #f1f5f9;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+        }
+
+        article h2 {
+            color: var(--text);
+            margin-top: 0;
+        }
+
+        article h3 {
+            margin-top: 1.5rem;
+            color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--primary);
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Calculadora de Cuentas Remuneradas</h1>
+    </header>
+
+    <div class="container">
+
+        <!-- BLOQUE DE ANUNCIO SUPERIOR -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- HERRAMIENTA CALCULADORA -->
+        <main class="card">
+            <h2>Simula tus rendimientos de ahorro</h2>
+            
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="initial">Depósito Inicial (€ / $):</label>
+                    <input type="number" id="initial" placeholder="Ej: 5000" value="3000">
+                </div>
+
+                <div class="form-group">
+                    <label for="monthly">Aportación Mensual (€ / $):</label>
+                    <input type="number" id="monthly" placeholder="Ej: 200" value="150">
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="rate">Tipo de Interés (%):</label>
+                    <input type="number" id="rate" step="0.01" placeholder="Ej: 3.5" value="3.0">
+                </div>
+
+                <div class="form-group">
+                    <label for="rateType">Frecuencia del Interés:</label>
+                    <select id="rateType">
+                        <option value="annual" selected>Anual (TIN)</option>
+                        <option value="monthly">Mensual</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label for="years">Plazo de Tiempo (Años):</label>
+                    <input type="number" id="years" placeholder="Ej: 3" value="2">
+                </div>
+
+                <div class="form-group">
+                    <label for="tax">Retención Fiscal (%) [Opcional]:</label>
+                    <input type="number" id="tax" placeholder="Ej: 19" value="19">
+                </div>
+            </div>
+
+            <button onclick="calculateSavings()">Calcular Ingresos</button>
+
+            <!-- RESULTADOS -->
+            <div id="results" class="results">
+                <h3>Resumen de Rendimiento</h3>
+                <div class="results-grid">
+                    <div class="result-box">
+                        <small>Saldo Final (Bruto)</small>
+                        <strong id="res-total-gross">0.00 €</strong>
+                    </div>
+                    <div class="result-box">
+                        <small>Saldo Final (Neto)</small>
+                        <strong id="res-total-net">0.00 €</strong>
+                    </div>
+                    <div class="result-box">
+                        <small>Total Aportado</small>
+                        <strong id="res-deposited">0.00 €</strong>
+                    </div>
+                    <div class="result-box">
+                        <small>Intereses Brutos</small>
+                        <strong id="res-interest-gross">0.00 €</strong>
+                    </div>
+                    <div class="result-box">
+                        <small>Intereses Netos</small>
+                        <strong id="res-interest-net">0.00 €</strong>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- BLOQUE DE ANUNCIO INTERMEDIO -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="0987654321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- ARTÍCULO SEO (Obligatorio para evitar el rechazo de AdSense) -->
+        <article class="card">
+            <h2>¿Cómo funciona una cuenta remunerada?</h2>
+            <p>Una <strong>cuenta remunerada</strong> es un producto financiero bancario que ofrece una rentabilidad en forma de intereses sobre el saldo de dinero aportado, manteniendo siempre total disponibilidad del capital para ser retirado cuando se necesite.</p>
+
+            <h3>Interés Compuesto con Aportaciones Periódicas</h3>
+            <p>A diferencia de los depósitos a plazo fijo tradicionales, las cuentas de ahorro modernas permiten realizar aportaciones mensuales recurrentes. Al añadir capital mes a mes, se activa el fenómeno del <strong>interés compuesto</strong>: los intereses devengados cada mes se suman al saldo total y comienzan a generar nuevos intereses en los periodos siguientes.</p>
+
+            <h3>Diferencia entre Interés Anual y Mensual</h3>
+            <ul>
+                <li><strong>Interés Anual (TIN / TAE):</strong> Es la tasa nominal calculada para un periodo de 12 meses. Si la cuenta abona intereses mensualmente, la tasa anual se divide entre 12 para calcular la liquidación de cada mes.</li>
+                <li><strong>Interés Mensual:</strong> Es la tasa que se aplica directamente sobre el saldo medio del mes actual. Si una entidad promociona un "1% mensual", equivale a un porcentaje anual sensiblemente superior debido a la capitalización.</li>
+            </ul>
+
+            <h3>Fiscalidad y Retención sobre los Intereses</h3>
+            <p>Los ingresos obtenidos mediante intereses en cuentas bancarias están considerados como <em>rendimientos del capital mobiliario</em>. En la mayoría de normativas fiscales (como en España o Latinoamérica), las entidades financieras aplican automáticamente una retención en la fuente (habitualmente del 19% para los primeros tramos de ganancia). Por ello, esta herramienta muestra tanto los rendimientos <strong>brutos</strong> como los <strong>netos</strong> reales que recibirás en tu cuenta.</p>
+        </article>
+
+    </div>
+
+    <!-- PIE DE PÁGINA OBLIGATORIO -->
+    <footer>
+        <p>&copy; 2026 Calculadora de Cuentas Remuneradas. Todos los derechos reservados.</p>
+        <p>
+            <a href="politica-de-privacidad.html">Política de Privacidad</a> | 
+            <a href="aviso-legal.html">Aviso Legal</a> | 
+            <a href="contacto.html">Contacto</a>
+        </p>
+    </footer>
+
+    <!-- LÓGICA DE CÁLCULO EN JAVASCRIPT -->
+    <script>
+        function calculateSavings() {
+            const initial = parseFloat(document.getElementById('initial').value) || 0;
+            const monthlyDeposit = parseFloat(document.getElementById('monthly').value) || 0;
+            const rateInput = parseFloat(document.getElementById('rate').value) || 0;
+            const rateType = document.getElementById('rateType').value;
+            const years = parseFloat(document.getElementById('years').value) || 0;
+            const taxRate = parseFloat(document.getElementById('tax').value) || 0;
+
+            if (years <= 0) {
+                alert("Por favor, introduce un número de años válido.");
+                return;
+            }
+
+            const totalMonths = Math.round(years * 12);
+            let monthlyRate = 0;
+
+            // Calcular tasa mensual
+            if (rateType === 'annual') {
+                monthlyRate = (rateInput / 100) / 12;
+            } else {
+                monthlyRate = rateInput / 100;
+            }
+
+            let currentBalance = initial;
+            let totalDeposited = initial;
+            let totalInterestGross = 0;
+
+            // Simulación mes a mes con capitalización e intereses sobre intereses
+            for (let m = 1; m <= totalMonths; m++) {
+                const interestThisMonth = currentBalance * monthlyRate;
+                totalInterestGross += interestThisMonth;
+                currentBalance += interestThisMonth + monthlyDeposit;
+                totalDeposited += monthlyDeposit;
+            }
+
+            // Cálculo de impuestos y neto
+            const taxMultiplier = taxRate / 100;
+            const totalInterestNet = totalInterestGross * (1 - taxMultiplier);
+            const finalBalanceNet = totalDeposited + totalInterestNet;
+
+            // Formatear resultados a moneda (€/$)
+            const fmt = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+
+            document.getElementById('res-total-gross').innerText = fmt.format(currentBalance);
+            document.getElementById('res-total-net').innerText = fmt.format(finalBalanceNet);
+            document.getElementById('res-deposited').innerText = fmt.format(totalDeposited);
+            document.getElementById('res-interest-gross').innerText = fmt.format(totalInterestGross);
+            document.getElementById('res-interest-net').innerText = fmt.format(totalInterestNet);
+
+            // Mostrar la caja de resultados
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
