@@ -8,48 +8,59 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2011997814577485"
      crossorigin="anonymous"></script>
 <style>
-:root{--bg:#f7f5f0;--fg:#1f2328;--mut:#5b6470;--card:#fff;--bd:#e5e1d8;--ac:#b4471f;--ac2:#f3e3da;--hero1:#1f3a4d;--hero2:#2f5d7a}
-@media (prefers-color-scheme:dark){:root{--bg:#141619;--fg:#e8e6e1;--mut:#9aa1ab;--card:#1e2126;--bd:#32363d;--ac:#f0916a;--ac2:#3a2a22;--hero1:#0f2230;--hero2:#1d3b50}}
+:root{--bg:#f7f5f0;--fg:#1f2328;--mut:#5b6470;--card:#fff;--bd:#e5e1d8;--ac:#b4471f;--ac2:#f3e3da}
+@media (prefers-color-scheme:dark){:root{--bg:#141619;--fg:#e8e6e1;--mut:#9aa1ab;--card:#1e2126;--bd:#32363d;--ac:#f0916a;--ac2:#3a2a22}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:inherit}
-.nav{max-width:1000px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.logo{font-weight:800;font-size:1.25rem;text-decoration:none;color:var(--ac)}
+.top{border-bottom:1px solid var(--bd);background:var(--card)}
+.nav{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.logo{font-weight:800;font-size:1.3rem;text-decoration:none;color:var(--ac)}
 .nav nav a{margin-left:16px;text-decoration:none;color:var(--mut);font-size:.95rem}
 .nav nav a:hover{color:var(--ac)}
-.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:56px 20px;text-align:center}
-.hero h1{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.15;margin:0 auto 12px;max-width:720px}
-.hero p{max-width:600px;margin:0 auto 24px;opacity:.9;font-size:1.1rem}
-.btn{display:inline-block;background:#fff;color:#1f3a4d;padding:12px 26px;border-radius:999px;font-weight:700;text-decoration:none}
-.btn:hover{transform:translateY(-2px)}
-section{max-width:1000px;margin:0 auto;padding:40px 20px 0}
-h2{font-size:1.5rem;margin:0 0 18px}
-.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.cat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;text-align:center;font-weight:600}
-.cat span{display:block;font-size:1.8rem;margin-bottom:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+main{max-width:1000px;margin:0 auto;padding:28px 20px 0}
+.intro{margin:0 0 24px}
+.intro h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:0 0 6px}
+.intro p{margin:0;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s}
-a.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .tag{align-self:flex-start;background:var(--ac2);color:var(--ac);font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px}
-.card h3{margin:0;font-size:1.15rem;line-height:1.35}
+.card h2{margin:0;font-size:1.2rem;line-height:1.35}
 .card p{margin:0;color:var(--mut);font-size:.95rem}
 .more{margin-top:auto;color:var(--ac);font-weight:700;font-size:.95rem}
-.soon{opacity:.6;border-style:dashed}
-.about{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:24px;color:var(--mut)}
-footer{max-width:1000px;margin:48px auto 0;padding:24px 20px 40px;border-top:1px solid var(--bd);color:var(--mut);font-size:.9rem;text-align:center}
+.about{margin-top:40px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;color:var(--mut);font-size:.95rem}
+.about h2{margin:0 0 6px;color:var(--fg);font-size:1.1rem}
+footer{max-width:1000px;margin:40px auto 0;padding:24px 20px 40px;border-top:1px solid var(--bd);color:var(--mut);font-size:.9rem;text-align:center}
 footer a{margin:0 8px;text-decoration:none}
 footer a:hover{color:var(--ac)}
 </style>
 </head>
 <body>
 
-<div class="nav">
-  <a class="logo" href="index.html">Mi web</a>
-  <nav>
-    <a href="#articulos">Artículos</a>
-    <a href="#temas">Temas</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
+<div class="top">
+  <div class="nav">
+    <a class="logo" href="index.html">Mi web</a>
+    <nav>
+      <a href="contacto.html">Contacto</a>
+      <a href="privacidad.html">Privacidad</a>
+    </nav>
+  </div>
 </div>
 
-<header class="hero">
+<main>
+  <div class="intro">
+    <h1>Guías claras para tomar mejores decisiones con tu dinero</h1>
+    <p>Seguros, finanzas personales y derechos del consumidor, explicados sin letra pequeña.</p>
+  </div>
+
+  <div class="grid">
+    <a class="card" href="seguro-coche-terceros-todo-riesgo.html">
+      <span class="tag">Seguros</span>
+      <h2>Seguro de coche: terceros, terceros ampliado o todo riesgo, ¿cuál elegir?</h2>
+      <p>Qué cubre cada modalidad, qué es la franquicia y cómo decidir según tu coche.</p>
+      <span class="more">Leer artículo →</span>
+    </a>
+  </div>
+
+  <div class="about">
