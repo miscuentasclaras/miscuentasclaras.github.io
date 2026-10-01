@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de fondo de emergencia</title>
+<meta name="description" content="Calcula cuánto dinero necesitas como fondo de emergencia y en cuánto tiempo lo alcanzarás.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2011997814577485"
+     crossorigin="anonymous"></script>
+<style>
+body{margin:0;background:#faf9f6;color:#1f2328;font:18px/1.7 Georgia,serif}
+header,footer{max-width:760px;margin:0 auto;padding:16px 20px;font:15px system-ui,sans-serif;color:#5b6470}
+header a,footer a{color:#b4471f;text-decoration:none;font-weight:bold}
+main{max-width:760px;margin:0 auto;padding:8px 20px 48px}
+h1{font-size:2rem;line-height:1.25}
+h2{font-size:1.4rem;margin:2em 0 .4em;border-bottom:2px solid #b4471f;padding-bottom:.2em}
+.meta{color:#5b6470;font:14px system-ui,sans-serif}
+.box{background:#f3e3da;border-left:4px solid #b4471f;padding:12px 16px;border-radius:6px;margin:1.2em 0}
+.aviso{font-size:.85rem;color:#5b6470;border-top:1px solid #e3e0d8;margin-top:2em;padding-top:1em}
+@media (prefers-color-scheme:dark){body{background:#17181b;color:#e8e6e1}.box{background:#3a2a22}.aviso{border-color:#33363c}header a,footer a{color:#f0916a}h2{border-color:#f0916a}}
+input,select{font:16px system-ui;padding:8px;border:1px solid #c9c4b8;border-radius:6px;width:100%;box-sizing:border-box}label{display:block;margin:12px 0 4px;font:600 14px system-ui}button{margin-top:16px;background:#b4471f;color:#fff;border:0;border-radius:8px;padding:12px 22px;font:700 16px system-ui;cursor:pointer}.res{margin-top:20px;background:#f3e3da;border-left:4px solid #b4471f;padding:14px 18px;border-radius:6px;font-family:system-ui}.res b{font-size:1.2rem}@media (prefers-color-scheme:dark){input,select{background:#1f2125;color:#e8e6e1;border-color:#33363c}}</style>
+</head>
+<body>
+<header><a href="index.html">← Inicio</a></header>
+<main>
+<article>
+<p class="meta">Herramientas · Gratis</p>
+<h1>Calculadora de fondo de emergencia</h1>
+<p>Indica tus gastos mensuales esenciales y cuántos meses quieres cubrir. Resultado orientativo.</p>
+<label>Gastos mensuales esenciales (€)</label><input id="g" type="number" min="0" value="1200">
+<label>Meses de cobertura</label><select id="m"><option>3</option><option selected>6</option><option>9</option><option>12</option></select>
+<label>Ahorro ya acumulado (€)</label><input id="a" type="number" min="0" value="0">
+<label>Aportación mensual (€)</label><input id="p" type="number" min="0" value="150">
+<button onclick="calc()">Calcular</button><div class="res" id="r">Introduce tus datos y pulsa Calcular.</div>
+<p class="aviso">Aviso: esta herramienta es meramente informativo y no constituye asesoramiento profesional (financiero, legal, médico ni de otro tipo). Las normas, cifras y plazos cambian: comprueba siempre las fuentes oficiales y consulta con un profesional antes de decidir.</p>
+</article>
+<script>const f=n=>n.toLocaleString('es-ES',{maximumFractionDigits:2});const v=id=>parseFloat(document.getElementById(id).value)||0;function calc(){const obj=v('g')*v('m'),falta=Math.max(obj-v('a'),0),p=v('p');let t=p>0?Math.ceil(falta/p):null;
+document.getElementById('r').innerHTML='Objetivo: <b>'+f(obj)+' €</b><br>Te faltan: <b>'+f(falta)+' €</b><br>'+(falta==0?'Ya has alcanzado tu objetivo.':(t?'Tiempo estimado: <b>'+t+' meses</b> ('+f(t/12)+' años)':'Indica una aportación mensual para estimar el plazo.'));}</script>
+</main>
+<footer><a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="contacto.html">Contacto</a></footer>
+</body>
+</html>
